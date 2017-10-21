@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import javax.annotation.Nonnull;
+
+import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,5 +29,14 @@ public class TestJpa {
     public void findOne() {
         User user = userRepository.findOne("1");
         assertThat(user).isNotNull();
+
+    }
+
+    public static void test(@Nonnull String a) {
+        System.out.println(a);
+    }
+
+    public static void main(String[] args) {
+        test(null);
     }
 }
