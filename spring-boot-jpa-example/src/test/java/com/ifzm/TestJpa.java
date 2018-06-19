@@ -1,14 +1,14 @@
 package com.ifzm;
 
-import com.ifzm.domain.User;
-import com.ifzm.repository.UserRepository;
+import com.example.domain.User;
+import com.example.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Nonnull;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -27,16 +27,9 @@ public class TestJpa {
 
     @Test
     public void findOne() {
-        User user = userRepository.findOne("1");
+        Optional<User> user = userRepository.findById("1");
         assertThat(user).isNotNull();
 
     }
 
-    public static void test(@Nonnull String a) {
-        System.out.println(a);
-    }
-
-    public static void main(String[] args) {
-        test(null);
-    }
 }

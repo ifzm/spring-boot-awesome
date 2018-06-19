@@ -1,3 +1,3 @@
 rootProject.name = 'spring-boot-awesome'
-include 'spring-boot-jpa-example', 'spring-boot-mybatis-example'
+include 'spring-boot-jpa-example', 'spring-boot-mybatis-example', 'spring-boot-atomikos-example'
 

@@ -1,7 +1,7 @@
 package com.ifzm;
 
-import com.ifzm.domain.User;
-import com.ifzm.mapper.UserMapper;
+import com.example.domain.User;
+import com.example.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,70 @@
+spring:
+  datasource:
+    schema: classpath:import.sql
+    type: com.alibaba.druid.pool.xa.DruidXADataSource
+    druid:
+      db:
+        default:
+          name: default
+          url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
+          username: root
+          password: 123456
+          # 下面为连接池的补充设置，应用到上面所有数据源中
+          # 初始化大小，最小，最大
+          initialSize: 5
+          minIdle: 5
+          maxActive: 20
+          # 配置获取连接等待超时的时间
+          maxWait: 60000
+          # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+          timeBetweenEvictionRunsMillis: 60000
+          # 配置一个连接在池中最小生存的时间，单位是毫秒
+          minEvictableIdleTimeMillis: 60000
+          validationQuery: SELECT 1
+          validationQueryTimeout: 10000
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          # 打开PSCache，并且指定每个连接上PSCache的大小
+          poolPreparedStatements: true
+          maxPoolPreparedStatementPerConnectionSize: 20
+          filters: stat,wall
+          # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+          connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+          # 合并多个DruidDataSource的监控数据
+          useGlobalDataSourceStat: true
+        mysql:
+          name: mysql
+          url: jdbc:mysql://localhost:3306/test?useSSL=false
+          username: root
+          password: 123456
+          # 下面为连接池的补充设置，应用到上面所有数据源中
+          # 初始化大小，最小，最大
+          initialSize: 5
+          minIdle: 5
+          maxActive: 20
+          # 配置获取连接等待超时的时间
+          maxWait: 60000
+          # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+          timeBetweenEvictionRunsMillis: 60000
+          # 配置一个连接在池中最小生存的时间，单位是毫秒
+          minEvictableIdleTimeMillis: 60000
+          validationQuery: SELECT 1
+          validationQueryTimeout: 10000
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          # 打开PSCache，并且指定每个连接上PSCache的大小
+          poolPreparedStatements: true
+          maxPoolPreparedStatementPerConnectionSize: 20
+          filters: stat,wall
+          # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+          connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+          # 合并多个DruidDataSource的监控数据
+          useGlobalDataSourceStat: true
+  jta:
+    log-dir: classpath:tx-logs
+    transaction-manager-id: txManager
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
